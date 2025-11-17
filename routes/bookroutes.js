@@ -49,6 +49,25 @@ router.get('/all', async (req, res) => {
       }
 })
 
+// Search books by title, author, or category
+router.get('/search', async (req, res) => {
+  const query = req.query.q;
+  try {
+    const books = await Book.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { author: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } },
+        { category: { $regex: query, $options: "i" } }, // if you have category
+      ],
+    });
+    res.status(200).json(books);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -64,6 +83,7 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 })
+
 
 
 module.exports = router;    

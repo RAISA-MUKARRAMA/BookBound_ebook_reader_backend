@@ -1,0 +1,10 @@
+const mongoose = require('mongoose');
+
+const purchasedBookSchema = new mongoose.Schema({
+  purchaseId: { type: mongoose.Schema.Types.ObjectId, ref: 'Purchase', required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true },
+  purchasedAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('PurchasedBook', purchasedBookSchema);

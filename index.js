@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const bookRoute = require("./routes/bookroutes");
-const authRoute = require("./routes/authroutes");
+const bookRoute = require("./routes/bookRoutes");
+const authRoute = require("./routes/authRoutes");
+const userRoute = require('./routes/userRoute');
+const purchaseRoute = require("./routes/purchaseRoutes");
+const cartRoute = require("./routes/cartRoutes.js");
 const bodyParser = require("body-parser");
 
 require('./db');
@@ -29,9 +32,12 @@ const corsOptions = {
 
 
   app.use("/api/books", bookRoute);
-app.use("/api/auth", authRoute);
+  app.use("/api/auth", authRoute);
+  app.use('/uploads', express.static('uploads'));
+  app.use('/api/users', userRoute);
+  app.use("/api/purchase", purchaseRoute);
+  app.use("/api/cart", cartRoute);
 
-app.use('/uploads', express.static('uploads'));
 
 
 

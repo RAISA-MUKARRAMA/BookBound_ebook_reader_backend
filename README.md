@@ -26,6 +26,7 @@ Make sure both frontend and bank server are running before starting this backend
 ```bash
 git clone https://github.com/RAISA-MUKARRAMA/BookBound_backend.git
 cd BookBound_backend
+```
 
 ⚙️ **Environment Variables**
 ----------------------------
@@ -38,6 +39,7 @@ DB_NAME=db1  PORT=5002
 PUBLIC_BANK_SERVER_URL=http://localhost:6002
 BOOKBOUND_ACCOUNT_NO=123456789
 BOOKBOUND_FRONTEND_URL=http://localhost:3002
+```
 
 ✔️ No need to set up your own database — this project uses a public demo database.
 
@@ -48,6 +50,7 @@ Run:
 
 ```bash
 npm install
+```
 
 ▶️ **Start the Backend Server**
 -------------------------------
@@ -56,11 +59,13 @@ npm install
 
 ```bash
 npm start
+```
 
 The backend will run at:
 
 ```bash
 http://localhost:5002
+```
 
 📁 **Project Structure**
 ------------------------
@@ -70,6 +75,7 @@ http://localhost:5002
 /routes       → All backend API routes
 server.js     → App entry point
 .env          → Environment config (you create this)
+```
 
 🔌 **APIs Provided**
 --------------------
